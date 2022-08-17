@@ -1,0 +1,5 @@
+node_modules/
+secrets.txt
+lambdatest.log
+.lambdatest/
+.vscode/
