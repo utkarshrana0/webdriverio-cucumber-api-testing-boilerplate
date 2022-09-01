@@ -1,9 +1,7 @@
 const { removeSync } = require('fs-extra');
 exports.config = {
-    // user: process.env.CLOUD_USER,
-    // key: process.env.CLOUD_KEY,
-    user: "rana.utkarsh00",
-    key: "CCv2BuGOkH0eu2900VbUJjg2ofT6FYEVV78csljkYPTSmJjswS",
+    user: process.env.CLOUD_USER,
+    key: process.env.CLOUD_KEY,
     logFile : './lambdatest.log',
     
     specs: [
