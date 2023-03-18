@@ -3,3 +3,4 @@ secrets.txt
 lambdatest.log
 .lambdatest/
 .vscode/
+.tmp/

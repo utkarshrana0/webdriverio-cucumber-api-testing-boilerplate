@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="LT_Windows">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/.lambdatest/v3/LT_Windows.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

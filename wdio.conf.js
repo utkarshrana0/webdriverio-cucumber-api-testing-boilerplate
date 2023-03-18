@@ -1,6 +1,9 @@
+const { removeSync } = require('fs-extra');
 exports.config = {
-    user: process.env.CLOUD_USER,
-    key: process.env.CLOUD_KEY,
+    // user: process.env.CLOUD_USER,
+    // key: process.env.CLOUD_KEY,
+    user: "rana.utkarsh00",
+    key: "CCv2BuGOkH0eu2900VbUJjg2ofT6FYEVV78csljkYPTSmJjswS",
     logFile : './lambdatest.log',
     
     specs: [
@@ -8,14 +11,22 @@ exports.config = {
     ],
     // Patterns to exclude.
     exclude: [
-        // 'path/to/excluded/files'
+        // 'path/to/excluded/files'895
     ],
 
     maxInstances: 10,
     capabilities: [{
         maxInstances: 5,
         browserName: 'chrome',
-        acceptInsecureCerts: true
+        acceptInsecureCerts: true,
+        'goog:chromeOptions':{
+            args: [ '--no-sandbox',
+                    '--disable-gpu',
+                    '--disable-notifications',
+                    'incognito',
+                    '--window-size=1920,1080'
+            ]
+        },
     }],
     
     // ===================
@@ -93,7 +104,7 @@ exports.config = {
     // If you are using Cucumber you need to specify the location of your step definitions.
     cucumberOpts: {
         // <string[]> (file/dir) require files before executing features
-        require: ['./features/step-definitions/steps.js'],
+        require: ['./features/step-definitions/*.js', './features/utils/*.js'],
         // <boolean> show full backtrace for errors
         backtrace: false,
         // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
@@ -129,8 +140,9 @@ exports.config = {
      * @param {Object} config wdio configuration object
      * @param {Array.<Object>} capabilities list of capabilities details
      */
-    // onPrepare: function (config, capabilities) {
-    // },
+    onPrepare: function (config, capabilities) {
+        removeSync('.tmp/');
+    },
     /**
      * Gets executed before a worker process is spawned and can be used to initialise specific service
      * for that worker as well as modify runtime environments in an async fashion.
